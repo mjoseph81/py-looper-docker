@@ -6,10 +6,10 @@ sudo xhost +local:*
 sudo xhost -local:*
 
 #build image
-sudo docker build -t py-looper:1.0.1 .
+sudo docker build -t mjoseph81/py-looper:1.0.1 .
 
 #create docker container
-sudo docker run -e DISPLAY=$DISPLAY -t -i --privileged -v /dev/bus/usb:/dev/bus/usb -v /tmp/.X11-unix/:/tmp/.X11-unix/ --device=/dev/ttyACM0 --name pylooper py-looper:1.0.1
+sudo docker run -e DISPLAY=$DISPLAY -t -i --privileged -v /dev/bus/usb:/dev/bus/usb -v /tmp/.X11-unix/:/tmp/.X11-unix/ --device=/dev/ttyACM0 --name pylooper mjoseph81/py-looper:1.0.1
 
 #start docker container
 sudo docker exec -it pylooper /bin/bash
